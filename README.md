@@ -85,7 +85,7 @@
    - AutoRES Allow(sec): If AutoRES does not occur before set time, then auto resume is cancelled.
    - RES Count at Standstill: Adjust RES CAN message count to start from StandStill. upper, if the departure is failed. lower, if your car generate cluster error or can error.(no reboot required)
    - StandStill Alternative: If auto resume from standsill does not work with normal setting.
-   - AutoRES delay (sec) : AutoRes will not reume until set time elapse, prevent premature resume.
+   - AutoRESDelay (sec) : AutoRes will not reume until set time elapse, to prevent premature resume.
    - Steer Wind Down: to mitiate torque at error status of your lkas
    - MainSwitch Openpilot ON/OFF: You can turn on/off OP using Cruise Button on steering wheel.
    - DEBUG UI 1: Show debug UI on screen. 2 lines bottom of screen.(no reboot required)
