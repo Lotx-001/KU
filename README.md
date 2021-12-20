@@ -79,11 +79,13 @@
    - OSM CurvDecel(%): If OSM has the value of curv speed, up/down this value if you want to add/subtract.
    - Use Auto Engagement: When OP is in disengagement status, Auto engagement is enabled when your car is moving. Cruise Standby status is needed at least.
    - Auto Engage Speed(km/h): Auto Engagement is enabled at this speed.
-   - Use Auto RES while Driving: SCC speed automatically set again when releasing SCC.(reboot required)
+   - Use Auto RES while Driving: SCC speed automatically resume when brake is release or gas is applied.(reboot required)
    - AutoRES Option: CruiseSet/MaxSpeedSet, MaxSpeedSet: Your OP MAX Speed set with RES Set speed. CruiseSet:only set to current set speed, not changed OP MAX Speed.
    - AutoRES Condition: RelBrake/OnGas, RelBrake: SCC speed set again when you release from brake pedal. OnGas: SCC speed set again when you step gas pedal.
-   - AutoRES Allow(sec): time to allow for AutoRES
+   - AutoRES Allow(sec): If AutoRES does not occur before set time, then auto resume is cancelled.
    - RES Count at Standstill: Adjust RES CAN message count to start from StandStill. upper, if the departure is failed. lower, if your car generate cluster error or can error.(no reboot required)
+   - StandStill Alternative: If auto resume from standsill does not work with normal setting.
+   - AutoRES delay (sec) : AutoRes will not reume until set time elapse, prevent premature resume.
    - Steer Wind Down: to mitiate torque at error status of your lkas
    - MainSwitch Openpilot ON/OFF: You can turn on/off OP using Cruise Button on steering wheel.
    - DEBUG UI 1: Show debug UI on screen. 2 lines bottom of screen.(no reboot required)
