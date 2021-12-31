@@ -385,6 +385,7 @@ static void ui_draw_debug(UIState *s) {
       ui_print(s, ui_viz_rx, ui_viz_ry+560, "SL:%.0f", (*s->sm)["carState"].getCarState().getSafetySign());
       ui_print(s, ui_viz_rx, ui_viz_ry+600, "DS:%.0f", (*s->sm)["carState"].getCarState().getSafetyDist());
     }
+    
     if (scene.osm_enabled) {
       ui_print(s, ui_viz_rx+(scene.mapbox_running ? 150:200), ui_viz_ry+240, "SL:%.0f", scene.liveMapData.ospeedLimit);
       ui_print(s, ui_viz_rx+(scene.mapbox_running ? 150:200), ui_viz_ry+280, "SLA:%.0f", scene.liveMapData.ospeedLimitAhead);
@@ -631,7 +632,8 @@ static void ui_draw_vision_speed(UIState *s) {
   }
 
   NVGcolor val_color = COLOR_WHITE;
-  float act_accel = scene.longitudinal_control?scene.op_accel:scene.a_req_value;
+
+  float act_accel = (!scene.longitudinal_control || scene.radar_long_helper == 2)?scene.a_req_value:0;
   float gas_opacity = act_accel*255>255?255:act_accel*255;
   float brake_opacity = abs(act_accel*175)>255?255:abs(act_accel*175);
 
@@ -981,7 +983,7 @@ static void bb_ui_draw_measures_right(UIState *s, int bb_x, int bb_y, int bb_w )
   }
 
   //cruise gap
-  if (scene.longitudinal_control) {
+  if (scene.longitudinal_control && scene.radar_long_helper != 2) {
     char val_str[16];
     char uom_str[6];
     NVGcolor val_color = COLOR_WHITE_ALPHA(200);
