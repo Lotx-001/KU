@@ -1199,23 +1199,22 @@ static void draw_laneless_button(UIState *s) {
   nvgStrokeWidth(s->vg, 6);
   nvgStroke(s->vg);
   nvgFontSize(s->vg, 55);
-  //if (!s->scene.lateralPlan.lanelessModeStatus) {
-  if (true) {
+  if (!s->scene.lateralPlan.lanelessModeStatus) {
     nvgBeginPath(s->vg);
     nvgMoveTo(s->vg, btn_xc1-20, btn_yc-57);
     nvgLineTo(s->vg, btn_xc1-30, btn_yc-57);
     nvgLineTo(s->vg, btn_xc1-35, btn_yc-9);
     nvgLineTo(s->vg, btn_xc1-25, btn_yc-9);
     nvgClosePath(s->vg);
-    nvgFillColor(s->vg, nvgRGBA(0,255,0,150));
+    nvgFillColor(s->vg, nvgRGBA(255,255,255,200));
     nvgFill(s->vg);
     nvgBeginPath(s->vg);
-    nvgMoveTo(s->vg, btn_xc1-30, btn_yc+5);
-    nvgLineTo(s->vg, btn_xc1-40, btn_yc+5);
-    nvgLineTo(s->vg, btn_xc1-45, btn_yc+50);
-    nvgLineTo(s->vg, btn_xc1-35, btn_yc+50);
+    nvgMoveTo(s->vg, btn_xc1-28, btn_yc+5);
+    nvgLineTo(s->vg, btn_xc1-38, btn_yc+5);
+    nvgLineTo(s->vg, btn_xc1-43, btn_yc+50);
+    nvgLineTo(s->vg, btn_xc1-33, btn_yc+50);
     nvgClosePath(s->vg);
-    nvgFillColor(s->vg, nvgRGBA(0,255,0,150));
+    nvgFillColor(s->vg, nvgRGBA(255,255,255,200));
     nvgFill(s->vg);
     nvgBeginPath(s->vg);
     nvgMoveTo(s->vg, btn_xc1+20, btn_yc-57);
@@ -1223,33 +1222,38 @@ static void draw_laneless_button(UIState *s) {
     nvgLineTo(s->vg, btn_xc1+35, btn_yc-9);
     nvgLineTo(s->vg, btn_xc1+25, btn_yc-9);
     nvgClosePath(s->vg);
-    nvgFillColor(s->vg, nvgRGBA(0,255,0,150));
+    nvgFillColor(s->vg, nvgRGBA(255,255,255,200));
     nvgFill(s->vg);
     nvgBeginPath(s->vg);
-    nvgMoveTo(s->vg, btn_xc1+30, btn_yc+5);
-    nvgLineTo(s->vg, btn_xc1+40, btn_yc+5);
-    nvgLineTo(s->vg, btn_xc1+45, btn_yc+50);
-    nvgLineTo(s->vg, btn_xc1+35, btn_yc+50);
+    nvgMoveTo(s->vg, btn_xc1+28, btn_yc+5);
+    nvgLineTo(s->vg, btn_xc1+38, btn_yc+5);
+    nvgLineTo(s->vg, btn_xc1+43, btn_yc+50);
+    nvgLineTo(s->vg, btn_xc1+33, btn_yc+50);
     nvgClosePath(s->vg);
-    nvgFillColor(s->vg, nvgRGBA(0,255,0,150));
+    nvgFillColor(s->vg, nvgRGBA(255,255,255,200));
     nvgFill(s->vg);
   }
   nvgFillColor(s->vg, nvgRGBA(255,255,255,200));
   if (s->scene.laneless_mode == 0) {
-    nvgFontSize(s->vg, 50);
-    nvgText(s->vg,btn_xc1,btn_yc-17,"LANE",NULL);
-    nvgText(s->vg,btn_xc1,btn_yc+17,"LINE",NULL);
+    nvgFillColor(s->vg, nvgRGBA(255,255,255,200));
+    nvgFontSize(s->vg, 46);
+    nvgText(s->vg,btn_xc1,btn_yc-42,"L",NULL);
+    nvgText(s->vg,btn_xc1,btn_yc-14,"A",NULL);
+    nvgText(s->vg,btn_xc1,btn_yc+13,"N",NULL);
+    nvgText(s->vg,btn_xc1,btn_yc+41,"E",NULL);
   } else if (s->scene.laneless_mode == 1) {
     nvgFontSize(s->vg, 50);
     nvgText(s->vg,btn_xc1,btn_yc-17,"LANE",NULL);
     nvgText(s->vg,btn_xc1,btn_yc+17,"LESS",NULL);
   } else if (s->scene.laneless_mode == 2) {
-    nvgFontSize(s->vg, 50);
-    nvgText(s->vg,btn_xc1,btn_yc-34,"A",NULL);
-    nvgText(s->vg,btn_xc1,btn_yc-17,"U",NULL);
-    nvgText(s->vg,btn_xc1,btn_yc+17,"T",NULL);
-    nvgText(s->vg,btn_xc1,btn_yc+34,"O",NULL);
+    nvgFillColor(s->vg, nvgRGBA(0,255,0,150));
+    nvgFontSize(s->vg, 46);
+    nvgText(s->vg,btn_xc1,btn_yc-42,"A",NULL);
+    nvgText(s->vg,btn_xc1,btn_yc-14,"U",NULL);
+    nvgText(s->vg,btn_xc1,btn_yc+13,"T",NULL);
+    nvgText(s->vg,btn_xc1,btn_yc+41,"O",NULL);
   }
+  nvgFillColor(s->vg, nvgRGBA(255,255,255,200));
 }
 
 static void ui_draw_vision_header(UIState *s) {
