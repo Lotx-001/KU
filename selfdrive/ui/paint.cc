@@ -1199,9 +1199,39 @@ static void draw_laneless_button(UIState *s) {
   nvgStrokeWidth(s->vg, 6);
   nvgStroke(s->vg);
   nvgFontSize(s->vg, 55);
-  if (s->scene.lateralPlan.lanelessModeStatus) {
-    NVGcolor fillColor = nvgRGBA(0,255,0,80);
-    nvgFillColor(s->vg, fillColor);
+  //if (!s->scene.lateralPlan.lanelessModeStatus) {
+  if (true) {
+    nvgBeginPath(s->vg);
+    nvgMoveTo(s->vg, btn_xc1-20, btn_yc-57);
+    nvgLineTo(s->vg, btn_xc1-30, btn_yc-57);
+    nvgLineTo(s->vg, btn_xc1-35, btn_yc-9);
+    nvgLineTo(s->vg, btn_xc1-25, btn_yc-9);
+    nvgClosePath(s->vg);
+    nvgFillColor(s->vg, nvgRGBA(0,255,0,150));
+    nvgFill(s->vg);
+    nvgBeginPath(s->vg);
+    nvgMoveTo(s->vg, btn_xc1-30, btn_yc+5);
+    nvgLineTo(s->vg, btn_xc1-40, btn_yc+5);
+    nvgLineTo(s->vg, btn_xc1-45, btn_yc+50);
+    nvgLineTo(s->vg, btn_xc1-35, btn_yc+50);
+    nvgClosePath(s->vg);
+    nvgFillColor(s->vg, nvgRGBA(0,255,0,150));
+    nvgFill(s->vg);
+    nvgBeginPath(s->vg);
+    nvgMoveTo(s->vg, btn_xc1+20, btn_yc-57);
+    nvgLineTo(s->vg, btn_xc1+30, btn_yc-57);
+    nvgLineTo(s->vg, btn_xc1+35, btn_yc-9);
+    nvgLineTo(s->vg, btn_xc1+25, btn_yc-9);
+    nvgClosePath(s->vg);
+    nvgFillColor(s->vg, nvgRGBA(0,255,0,150));
+    nvgFill(s->vg);
+    nvgBeginPath(s->vg);
+    nvgMoveTo(s->vg, btn_xc1+30, btn_yc+5);
+    nvgLineTo(s->vg, btn_xc1+40, btn_yc+5);
+    nvgLineTo(s->vg, btn_xc1+45, btn_yc+50);
+    nvgLineTo(s->vg, btn_xc1+35, btn_yc+50);
+    nvgClosePath(s->vg);
+    nvgFillColor(s->vg, nvgRGBA(0,255,0,150));
     nvgFill(s->vg);
   }
   nvgFillColor(s->vg, nvgRGBA(255,255,255,200));
@@ -1214,7 +1244,11 @@ static void draw_laneless_button(UIState *s) {
     nvgText(s->vg,btn_xc1,btn_yc-17,"LANE",NULL);
     nvgText(s->vg,btn_xc1,btn_yc+17,"LESS",NULL);
   } else if (s->scene.laneless_mode == 2) {
-    nvgText(s->vg,btn_xc1,btn_yc,"AUTO",NULL);
+    nvgFontSize(s->vg, 50);
+    nvgText(s->vg,btn_xc1,btn_yc-34,"A",NULL);
+    nvgText(s->vg,btn_xc1,btn_yc-17,"U",NULL);
+    nvgText(s->vg,btn_xc1,btn_yc+17,"T",NULL);
+    nvgText(s->vg,btn_xc1,btn_yc+34,"O",NULL);
   }
 }
 
